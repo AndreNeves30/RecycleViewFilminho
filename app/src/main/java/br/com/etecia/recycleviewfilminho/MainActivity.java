@@ -19,10 +19,10 @@ public class MainActivity extends AppCompatActivity {
         lFilmes = new ArrayList<>();
 
         lFilmes.add(
-                new Filmes("Interestelar","Uma equipe de exploradores viaja além desta galáxia através de um buraco de minhoca recém-descoberto para descobrir se a humanidade tem futuro entre as estrelas.\n","Ficção cinetífica",R.drawable.interestelar)
+                new Filmes("Interestelar",getString(R.string.inter),"Ficção cinetífica",R.drawable.interestelar)
         );
 
-        MyAdapter adapter = new MyAdapter(getApplicationContext(),);
+        MyAdapter adapter = new MyAdapter(getApplicationContext(),lFilmes);
 
     }
 }
