@@ -2,6 +2,7 @@ package br.com.etecia.recycleviewfilminho;
 
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -26,17 +27,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+
+        View view;
+
+        LayoutInflater inflater = LayoutInflater.from(mCon);
+        view = inflater.inflate(R.layout.modelo_filminhos,parent,false);
+
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
+        holder.idTitulo.setText((listaFilmes.get(position).getTitulo()));
+        holder.idImg.setImageResource((listaFilmes.get(position).getImagem()));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listaFilmes.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
