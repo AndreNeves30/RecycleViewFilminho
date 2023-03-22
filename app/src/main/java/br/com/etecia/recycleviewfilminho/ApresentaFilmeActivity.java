@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,6 +14,8 @@ public class ApresentaFilmeActivity extends AppCompatActivity {
         TextView mTitulo, mCategoria, mDescricao;
 
         ImageView mImagem;
+
+        Button btnVoltar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +25,14 @@ public class ApresentaFilmeActivity extends AppCompatActivity {
         mCategoria = findViewById(R.id.mGeneroFilme);
         mDescricao = findViewById(R.id.mDescricaoFilme);
         mImagem = findViewById(R.id.mImagemFilme);
+        btnVoltar = findViewById(R.id.btnVoltar);
+
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            }
+        });
 
         Intent intent = getIntent();
 

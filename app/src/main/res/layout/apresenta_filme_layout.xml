@@ -78,4 +78,12 @@
             tools:ignore="TextSizeCheck" />
 
     </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:id="@+id/btnVoltar"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_gravity="center_horizontal"
+        android:text="Voltar"/>
 </LinearLayout>
