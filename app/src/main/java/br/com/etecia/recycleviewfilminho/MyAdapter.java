@@ -2,6 +2,7 @@ package br.com.etecia.recycleviewfilminho;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         View view;
 
         LayoutInflater inflater = LayoutInflater.from(mCon);
-        view = inflater.inflate(R.layout.modelo_filminhos,parent,false);
+        view = inflater.inflate(R.layout.modelo_filminhos, parent, false);
 
         return new ViewHolder(view);
     }
@@ -41,6 +42,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         holder.idTitulo.setText((listaFilmes.get(position).getTitulo()));
         holder.idImg.setImageResource((listaFilmes.get(position).getImagem()));
+
+        holder.idCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(mCon, ApresentaFilmeActivity.class);
+
+                intent.putExtra("Titulo", listaFilmes.get(position).getTitulo());
+                intent.putExtra("Descricao", listaFilmes.get(position).getDescricao());
+                intent.putExtra("Categoria", listaFilmes.get(position).getCategoria());
+                intent.putExtra("ImagemFilme", listaFilmes.get(position).getImagem());
+
+                mCon.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            }
+        });
     }
 
     @Override
@@ -48,7 +64,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         return listaFilmes.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView idTitulo;
         ImageView idImg;
         CardView idCard;
